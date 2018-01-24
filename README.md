@@ -5,3 +5,16 @@
 之所以把它做到github上，主要是，每次需要使用gperftools时，都需要重新撸一遍过程。（编译、重新使用gperftools时的试错、等等）
 
 于是痛定思痛，完整撸一遍到github上。下次再用时，希望减少不必要的工作量！！！
+
+
+### 编译
+
+本项目只在linux下使用
+
+执行下列语句：
+```bash
+cd deps/lib_linux/
+./gen.sh
+cd ../../build/
+./domake.sh
+```
