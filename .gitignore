@@ -25,6 +25,9 @@
 *.la
 *.a
 *.lib
+*.ilk
+*.pdb
+*.db
 
 # Executables
 *.exe
