@@ -1,0 +1,6 @@
+/boost*
+/fmt*
+/Python*
+*.log
+/PhysX-3.4-master*
+/gperftools-gperftools*
