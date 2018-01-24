@@ -12,9 +12,13 @@ int main(int argn, char *argv[]) {
     delete [] a;
 
 
-    auto b = new char[100];
+    auto b = new char[1024*1024*2];
 
     Profiler::HeapProfilerDump("dump2");
+    
+    delete [] b;
+    
+    Profiler::HeapProfilerDump("dump3");
 
     Profiler::HeapProfilerStop();
 

@@ -38,6 +38,9 @@ workspace "gperftools_test"
     if os.is("linux") then
         buildoptions { "-fPIC -static-libgcc -static-libstdc++" }
         links{
+            "profiler",
+            "tcmalloc",
+            "pthread",
         }
     end
     

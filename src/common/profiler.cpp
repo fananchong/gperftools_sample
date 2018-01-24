@@ -43,28 +43,28 @@ void Profiler::ReleaseFreeMemory()
 void Profiler::HeapProfilerStart(const char *prefix)
 {
 #ifndef _MSC_VER
-    HeapProfilerStart(prefix);
+    ::HeapProfilerStart(prefix);
 #endif
 }
 
 void Profiler::HeapProfilerDump(const char *reason)
 {
 #ifndef _MSC_VER
-    HeapProfilerDump(reason);
+    ::HeapProfilerDump(reason);
 #endif
 }
 
 void Profiler::HeapProfilerStop()
 {
 #ifndef _MSC_VER
-    HeapProfilerStop();
+    ::HeapProfilerStop();
 #endif
 }
 
 bool Profiler::IsHeapProfilerRunning()
 {
 #ifndef _MSC_VER
-    return IsHeapProfilerRunning() != 0;
+    return ::IsHeapProfilerRunning() != 0;
 #else
     return false;
 #endif
@@ -121,7 +121,7 @@ int64_t Profiler::HeapProfilerGetAllocationInterval()
 int Profiler::ProfilerStart(const char *prefix)
 {
 #ifndef _MSC_VER
-    return ProfilerStart(prefix);
+    return ::ProfilerStart(prefix);
 #else
     return -1;
 #endif
@@ -130,14 +130,14 @@ int Profiler::ProfilerStart(const char *prefix)
 void Profiler::ProfilerStop()
 {
 #ifndef _MSC_VER
-    ProfilerStop();
+    ::ProfilerStop();
 #endif
 }
 
 void Profiler::ProfilerFlush()
 {
 #ifndef _MSC_VER
-    ProfilerFlush();
+    ::ProfilerFlush();
 #endif
 }
 
