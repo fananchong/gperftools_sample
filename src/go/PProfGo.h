@@ -11,9 +11,9 @@
 extern "C" {
 #endif
 
-    DLLIMPORT void HeapProfilerStart(const char *prefix);
-    DLLIMPORT void HeapProfilerDump(const char *reason);
-    DLLIMPORT void HeapProfilerStop();
+    DLLIMPORT void _HeapProfilerStart(const char *prefix);
+    DLLIMPORT void _HeapProfilerDump(const char *reason);
+    DLLIMPORT void _HeapProfilerStop();
 
 #ifdef __cplusplus
 }
