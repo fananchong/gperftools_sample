@@ -32,6 +32,7 @@ workspace "gperftools_test"
     optimize "On"
     filter { }
     
+    defines { "ENABLE_PROFILER" }
     
     if os.is("windows") then
     end
@@ -48,11 +49,19 @@ workspace "gperftools_test"
 project "test"
     kind "ConsoleApp"
     targetname "test"
-    defines { "ENABLE_PROFILER" }
     includedirs {
         "../src",
     }
     files {
-        "../src/**",
+        "../src/common/**",
+        "../src/test/**",
+    }
+    
+project "PProfGo"
+    kind "SharedLib"
+    targetname "PProfGo"
+    files {
+        "../src/common/**",
+        "../src/go/**",
     }
     
