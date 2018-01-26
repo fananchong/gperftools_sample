@@ -18,3 +18,56 @@ cd deps/lib_linux/
 cd ../../build/
 ./domake.sh
 ```
+
+### libPProf.so
+
+go tool pprof 有局限性，只能查看golang语言层面的heap分配情况
+
+因此可以结合 本项目编译出来的 libPProf.so
+
+查看go语言与C混合编程下的C层面的heap分配情况
+
+
+### libPProf.so 例子
+
+```go
+
+/*
+#cgo LDFLAGS: -L./ -lPProfGo
+#include "PProfGo.h"
+#include "stdlib.h"
+*/
+import "C"
+
+func main() {
+  HeapProfilerStart("test.prof")
+
+  // test1代码略
+
+  HeapProfilerDump("test1")
+
+  // test2代码略
+  
+  HeapProfilerDump("test2")
+	
+  HeapProfilerStop()
+}
+
+
+func HeapProfilerStart(f string) {
+  spath := C.CString(f)
+  defer C.free(unsafe.Pointer(spath))
+  C._HeapProfilerStart(spath)
+}
+
+func HeapProfilerDump(s string) {
+  temps := C.CString(s)
+  defer C.free(unsafe.Pointer(temps))
+  C._HeapProfilerDump(temps)
+}
+
+func HeapProfilerStop() {
+  C._HeapProfilerStop()
+}
+
+```
