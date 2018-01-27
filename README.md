@@ -46,10 +46,12 @@ func main() {
 
   HeapProfilerDump("test1")
 
-  // test2代码略
+  go func() {
+    // test2代码略
   
-  HeapProfilerDump("test2")
-	
+    HeapProfilerDump("test2")
+  }
+  
   HeapProfilerStop()
 }
 
