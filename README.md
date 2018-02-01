@@ -13,6 +13,7 @@
 
 执行下列语句：
 ```bash
+git submodule update --init -- "tools/build"
 cd deps/lib_linux/
 ./gen.sh
 cd ../../build/
